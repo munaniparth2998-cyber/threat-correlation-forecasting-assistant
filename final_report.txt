@@ -1,0 +1,362 @@
+============================================================
+THREAT REPORT — IP: 192.168.10.45
+============================================================
+RISK LEVEL : HIGH
+SCORE      : 22/28  (Explainable risk-prioritization score — NOT CVSS)
+
+BOTTOM LINE:
+  Alert data from this IP indicates suspicious activity consistent with a possible
+  multi-stage attack sequence: reconnaissance, credential access attempts, account
+  manipulation, and outbound data transfer were all observed.
+  This requires immediate investigation and containment.
+
+------------------------------------------------------------
+ATTACK CHAIN:
+  Active Scanning → Brute Force → Account Manipulation → Exfiltration Over Alternative Protocol
+
+TIMELINE:  (timestamps approximate — evenly interpolated from group start to end)
+  2024-06-15 02:14:00  T1595   Active Scanning
+  2024-06-15 02:15:58  T1110   Brute Force
+  2024-06-15 02:17:56  T1098   Account Manipulation
+  2024-06-15 02:19:54  T1048   Exfiltration Over Alternative Protocol
+
+------------------------------------------------------------
+WHY THIS SCORE:
+  T1595   2 pts  — Active reconnaissance / port scanning detected against this host
+  T1110   5 pts  — Repeated failed login attempts (brute force) observed from this IP
+  T1098   7 pts  — Account settings manipulated to maintain or elevate access on this system
+  T1048   8 pts  — Data transferred out over a non-standard or alternative protocol
+  ----------------------------------------
+  Total  22/28
+
+  Note: 4 distinct technique(s) observed from the same source IP within 6m 54s.
+  Co-occurrence of multiple techniques in a short time window
+  increases the significance of this group.
+
+------------------------------------------------------------
+CORRELATION EVIDENCE:
+  Source IP              : 192.168.10.45
+  Total alerts in group  : 4
+  Group time span        : 2024-06-15 02:14:00 — 2024-06-15 02:19:54
+  Duration               : 6m 54s
+  Distinct techniques    : 4  (T1595, T1110, T1098, T1048)
+  Max gap between events : 2m 18s  (interpolated)
+  Correlation rule       : same source_ip + gap <= 10 minutes
+
+------------------------------------------------------------
+KNOWLEDGE-BASED FORECAST — NOT ML PREDICTION:
+  Observed last technique : T1048 - Exfiltration Over Alternative Protocol
+
+WHY THIS FORECAST:
+  Exfiltration is typically a late-stage technique. Post-exfiltration activity
+  documented in ATT&CK includes defense evasion (removing evidence) and lateral
+  movement to expand the breach to adjacent systems.
+
+  Plausible follow-on activity (documented ATT&CK relationships only):
+  • A plausible next step is defense evasion activity. Monitor for log clearing,
+    file deletion in staging areas, or changes to audit policies
+    (T1070 - Indicator Removal).
+    Reference: MITRE ATT&CK T1070 — https://attack.mitre.org/techniques/T1070/
+  • Commonly associated follow-on activity includes lateral movement. Monitor for
+    unusual remote service connections, RDP, SSH, or SMB activity from this host
+    to adjacent systems (T1021 - Remote Services).
+    Reference: MITRE ATT&CK T1021 — https://attack.mitre.org/techniques/T1021/
+
+------------------------------------------------------------
+RECOMMENDED ACTION:
+  1. Block this source IP at the perimeter firewall pending investigation.
+  2. Review outbound network transfers from this host during the observed time window
+     and assess whether sensitive data may have been involved.
+  3. Audit authentication and account-change logs for the period covered by this
+     alert group.
+============================================================
+
+============================================================
+THREAT REPORT — IP: 10.0.3.212
+============================================================
+RISK LEVEL : HIGH
+SCORE      : 22/28  (Explainable risk-prioritization score — NOT CVSS)
+
+BOTTOM LINE:
+  Alert data from this IP indicates suspicious activity consistent with a possible
+  multi-stage attack sequence: reconnaissance, credential access attempts, account
+  manipulation, and outbound data transfer were all observed.
+  This requires immediate investigation and containment.
+
+------------------------------------------------------------
+ATTACK CHAIN:
+  Active Scanning → Brute Force → Account Manipulation → Exfiltration Over Alternative Protocol
+
+TIMELINE:  (timestamps approximate — evenly interpolated from group start to end)
+  2024-06-15 07:51:00  T1595   Active Scanning
+  2024-06-15 07:53:06  T1110   Brute Force
+  2024-06-15 07:55:12  T1098   Account Manipulation
+  2024-06-15 07:57:18  T1048   Exfiltration Over Alternative Protocol
+
+------------------------------------------------------------
+WHY THIS SCORE:
+  T1595   2 pts  — Active reconnaissance / port scanning detected against this host
+  T1110   5 pts  — Repeated failed login attempts (brute force) observed from this IP
+  T1098   7 pts  — Account settings manipulated to maintain or elevate access on this system
+  T1048   8 pts  — Data transferred out over a non-standard or alternative protocol
+  ----------------------------------------
+  Total  22/28
+
+  Note: 4 distinct technique(s) observed from the same source IP within 6m 19s.
+  Co-occurrence of multiple techniques in a short time window
+  increases the significance of this group.
+
+------------------------------------------------------------
+CORRELATION EVIDENCE:
+  Source IP              : 10.0.3.212
+  Total alerts in group  : 4
+  Group time span        : 2024-06-15 07:51:00 — 2024-06-15 07:57:18
+  Duration               : 6m 19s
+  Distinct techniques    : 4  (T1595, T1110, T1098, T1048)
+  Max gap between events : 2m 6s  (interpolated)
+  Correlation rule       : same source_ip + gap <= 10 minutes
+
+------------------------------------------------------------
+KNOWLEDGE-BASED FORECAST — NOT ML PREDICTION:
+  Observed last technique : T1048 - Exfiltration Over Alternative Protocol
+
+WHY THIS FORECAST:
+  Exfiltration is typically a late-stage technique. Post-exfiltration activity
+  documented in ATT&CK includes defense evasion (removing evidence) and lateral
+  movement to expand the breach to adjacent systems.
+
+  Plausible follow-on activity (documented ATT&CK relationships only):
+  • A plausible next step is defense evasion activity. Monitor for log clearing,
+    file deletion in staging areas, or changes to audit policies
+    (T1070 - Indicator Removal).
+    Reference: MITRE ATT&CK T1070 — https://attack.mitre.org/techniques/T1070/
+  • Commonly associated follow-on activity includes lateral movement. Monitor for
+    unusual remote service connections, RDP, SSH, or SMB activity from this host
+    to adjacent systems (T1021 - Remote Services).
+    Reference: MITRE ATT&CK T1021 — https://attack.mitre.org/techniques/T1021/
+
+------------------------------------------------------------
+RECOMMENDED ACTION:
+  1. Block this source IP at the perimeter firewall pending investigation.
+  2. Review outbound network transfers from this host during the observed time window
+     and assess whether sensitive data may have been involved.
+  3. Audit authentication and account-change logs for the period covered by this
+     alert group.
+============================================================
+
+============================================================
+THREAT REPORT — IP: 172.16.88.7
+============================================================
+RISK LEVEL : HIGH
+SCORE      : 22/28  (Explainable risk-prioritization score — NOT CVSS)
+
+BOTTOM LINE:
+  Alert data from this IP indicates suspicious activity consistent with a possible
+  multi-stage attack sequence: reconnaissance, credential access attempts, account
+  manipulation, and outbound data transfer were all observed.
+  This requires immediate investigation and containment.
+
+------------------------------------------------------------
+ATTACK CHAIN:
+  Active Scanning → Brute Force → Account Manipulation → Exfiltration Over Alternative Protocol
+
+TIMELINE:  (timestamps approximate — evenly interpolated from group start to end)
+  2024-06-15 13:37:00  T1595   Active Scanning
+  2024-06-15 13:40:15  T1110   Brute Force
+  2024-06-15 13:43:30  T1098   Account Manipulation
+  2024-06-15 13:46:45  T1048   Exfiltration Over Alternative Protocol
+
+------------------------------------------------------------
+WHY THIS SCORE:
+  T1595   2 pts  — Active reconnaissance / port scanning detected against this host
+  T1110   5 pts  — Repeated failed login attempts (brute force) observed from this IP
+  T1098   7 pts  — Account settings manipulated to maintain or elevate access on this system
+  T1048   8 pts  — Data transferred out over a non-standard or alternative protocol
+  ----------------------------------------
+  Total  22/28
+
+  Note: 4 distinct technique(s) observed from the same source IP within 10m 45s.
+  Co-occurrence of multiple techniques in a short time window
+  increases the significance of this group.
+
+------------------------------------------------------------
+CORRELATION EVIDENCE:
+  Source IP              : 172.16.88.7
+  Total alerts in group  : 4
+  Group time span        : 2024-06-15 13:37:00 — 2024-06-15 13:46:45
+  Duration               : 10m 45s
+  Distinct techniques    : 4  (T1595, T1110, T1098, T1048)
+  Max gap between events : 4m 35s  (interpolated)
+  Correlation rule       : same source_ip + gap <= 10 minutes
+
+------------------------------------------------------------
+KNOWLEDGE-BASED FORECAST — NOT ML PREDICTION:
+  Observed last technique : T1048 - Exfiltration Over Alternative Protocol
+
+WHY THIS FORECAST:
+  Exfiltration is typically a late-stage technique. Post-exfiltration activity
+  documented in ATT&CK includes defense evasion (removing evidence) and lateral
+  movement to expand the breach to adjacent systems.
+
+  Plausible follow-on activity (documented ATT&CK relationships only):
+  • A plausible next step is defense evasion activity. Monitor for log clearing,
+    file deletion in staging areas, or changes to audit policies
+    (T1070 - Indicator Removal).
+    Reference: MITRE ATT&CK T1070 — https://attack.mitre.org/techniques/T1070/
+  • Commonly associated follow-on activity includes lateral movement. Monitor for
+    unusual remote service connections, RDP, SSH, or SMB activity from this host
+    to adjacent systems (T1021 - Remote Services).
+    Reference: MITRE ATT&CK T1021 — https://attack.mitre.org/techniques/T1021/
+
+------------------------------------------------------------
+RECOMMENDED ACTION:
+  1. Block this source IP at the perimeter firewall pending investigation.
+  2. Review outbound network transfers from this host during the observed time window
+     and assess whether sensitive data may have been involved.
+  3. Audit authentication and account-change logs for the period covered by this
+     alert group.
+============================================================
+
+============================================================
+THREAT REPORT — IP: 185.220.101.33
+============================================================
+RISK LEVEL : HIGH
+SCORE      : 22/28  (Explainable risk-prioritization score — NOT CVSS)
+
+BOTTOM LINE:
+  Alert data from this IP indicates suspicious activity consistent with a possible
+  multi-stage attack sequence: reconnaissance, credential access attempts, account
+  manipulation, and outbound data transfer were all observed.
+  This requires immediate investigation and containment.
+
+------------------------------------------------------------
+ATTACK CHAIN:
+  Active Scanning → Brute Force → Account Manipulation → Exfiltration Over Alternative Protocol
+
+TIMELINE:  (timestamps approximate — evenly interpolated from group start to end)
+  2024-06-15 20:05:00  T1595   Active Scanning
+  2024-06-15 20:07:43  T1110   Brute Force
+  2024-06-15 20:10:26  T1098   Account Manipulation
+  2024-06-15 20:13:09  T1048   Exfiltration Over Alternative Protocol
+
+------------------------------------------------------------
+WHY THIS SCORE:
+  T1595   2 pts  — Active reconnaissance / port scanning detected against this host
+  T1110   5 pts  — Repeated failed login attempts (brute force) observed from this IP
+  T1098   7 pts  — Account settings manipulated to maintain or elevate access on this system
+  T1048   8 pts  — Data transferred out over a non-standard or alternative protocol
+  ----------------------------------------
+  Total  22/28
+
+  Note: 4 distinct technique(s) observed from the same source IP within 8m 8s.
+  Co-occurrence of multiple techniques in a short time window
+  increases the significance of this group.
+
+------------------------------------------------------------
+CORRELATION EVIDENCE:
+  Source IP              : 185.220.101.33
+  Total alerts in group  : 4
+  Group time span        : 2024-06-15 20:05:00 — 2024-06-15 20:13:09
+  Duration               : 8m 8s
+  Distinct techniques    : 4  (T1595, T1110, T1098, T1048)
+  Max gap between events : 3m 43s  (interpolated)
+  Correlation rule       : same source_ip + gap <= 10 minutes
+
+------------------------------------------------------------
+KNOWLEDGE-BASED FORECAST — NOT ML PREDICTION:
+  Observed last technique : T1048 - Exfiltration Over Alternative Protocol
+
+WHY THIS FORECAST:
+  Exfiltration is typically a late-stage technique. Post-exfiltration activity
+  documented in ATT&CK includes defense evasion (removing evidence) and lateral
+  movement to expand the breach to adjacent systems.
+
+  Plausible follow-on activity (documented ATT&CK relationships only):
+  • A plausible next step is defense evasion activity. Monitor for log clearing,
+    file deletion in staging areas, or changes to audit policies
+    (T1070 - Indicator Removal).
+    Reference: MITRE ATT&CK T1070 — https://attack.mitre.org/techniques/T1070/
+  • Commonly associated follow-on activity includes lateral movement. Monitor for
+    unusual remote service connections, RDP, SSH, or SMB activity from this host
+    to adjacent systems (T1021 - Remote Services).
+    Reference: MITRE ATT&CK T1021 — https://attack.mitre.org/techniques/T1021/
+
+------------------------------------------------------------
+RECOMMENDED ACTION:
+  1. Block this source IP at the perimeter firewall pending investigation.
+  2. Review outbound network transfers from this host during the observed time window
+     and assess whether sensitive data may have been involved.
+  3. Audit authentication and account-change logs for the period covered by this
+     alert group.
+============================================================
+
+============================================================
+THREAT REPORT — IP: 198.51.100.77
+============================================================
+RISK LEVEL : MEDIUM
+SCORE      : 11/28  (Explainable risk-prioritization score — NOT CVSS)
+
+BOTTOM LINE:
+  Repeated credential access attempts were observed from this IP, followed by
+  high-volume traffic consistent with a denial-of-service attempt. This pattern
+  may indicate a distraction-and-intrusion combination — review concurrent
+  activity on other hosts during the flood window.
+
+------------------------------------------------------------
+ATTACK CHAIN:
+  Brute Force → Brute Force → Network Denial of Service
+
+TIMELINE:  (timestamps from alerts.csv — group start 10:31:14 to end 10:37:09)
+  2024-06-15 10:31:14  T1110   Brute Force
+  2024-06-15 10:34:43  T1110   Brute Force
+  2024-06-15 10:37:09  T1498   Network Denial of Service
+
+------------------------------------------------------------
+WHY THIS SCORE:
+  T1110   5 pts  — Repeated failed login attempts (brute force) observed from this IP
+  T1498   6 pts  — High-volume traffic spike consistent with a denial-of-service attack
+  ----------------------------------------
+  Total  11/28
+
+  Note: 2 distinct technique(s) observed from the same source IP within 5m 55s.
+  Co-occurrence of multiple techniques in a short time window
+  increases the significance of this group.
+  Deduplication applied: T1110 appeared twice but counted once.
+
+------------------------------------------------------------
+CORRELATION EVIDENCE:
+  Source IP              : 198.51.100.77
+  Total alerts in group  : 3
+  Group time span        : 2024-06-15 10:31:14 — 2024-06-15 10:37:09
+  Duration               : 5m 55s
+  Distinct techniques    : 2  (T1110, T1498)
+  Max gap between events : 2m 57s
+  Correlation rule       : same source_ip + gap <= 10 minutes
+
+------------------------------------------------------------
+KNOWLEDGE-BASED FORECAST — NOT ML PREDICTION:
+  Observed last technique : T1498 - Network Denial of Service
+
+WHY THIS FORECAST:
+  DDoS is an Impact technique. ATT&CK and threat intelligence report that
+  volumetric attacks are sometimes used as a distraction to mask concurrent
+  intrusion activity on other systems or services.
+
+  Plausible follow-on activity (documented ATT&CK relationships only):
+  • Commonly associated with concurrent defense evasion activity. Monitor for log
+    clearing or unusual access patterns on other systems during or immediately after
+    the traffic flood (T1070 - Indicator Removal).
+    Reference: MITRE ATT&CK T1070 — https://attack.mitre.org/techniques/T1070/
+  • A plausible associated activity is concurrent reconnaissance or intrusion on
+    other systems while this flood is active. Review traffic to other hosts during
+    this time window.
+    Reference: MITRE ATT&CK T1498 procedure examples — https://attack.mitre.org/techniques/T1498/
+
+------------------------------------------------------------
+RECOMMENDED ACTION:
+  1. Activate or verify DDoS mitigation controls for this source IP.
+  2. Review authentication logs on targeted services during the time window
+     to determine whether the brute-force component succeeded.
+  3. Inspect logs of other hosts during the flood window for signs of
+     concurrent intrusion or lateral movement activity.
+============================================================
